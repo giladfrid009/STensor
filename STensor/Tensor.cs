@@ -34,7 +34,7 @@ namespace STensor
         {
         }
 
-        protected static Tensor<T> FromRef(Shape shape, params T[] array)
+        public static Tensor<T> FromRef(Shape shape, params T[] array)
         {
             return new Tensor<T>(shape, array, true);
         }
