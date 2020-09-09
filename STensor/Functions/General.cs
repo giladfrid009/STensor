@@ -56,5 +56,10 @@ namespace STensor
         {
             return ArrayOps<T>.IndexOf(InternalArray, vPredicate, predicate);
         }
+
+        public T[] ToArray()
+        {
+            return ArrayOps<T>.Copy(InternalArray);
+        }
     }
 }

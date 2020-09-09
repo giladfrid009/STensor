@@ -71,7 +71,7 @@ namespace STensor
                 BuilderArray = Array.Empty<T>();
                 Shape = Shape.Empty;
 
-                return Tensor<T>.FromRef(shape, array);
+                return FromRef(shape, array);
             }
         }
     }
