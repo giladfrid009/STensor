@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Numerics;
-using STensor.Exceptions;
 using SimpleSimd;
 
 namespace STensor
@@ -20,21 +19,6 @@ namespace STensor
         public bool Contains(T value)
         {
             return ArrayOps<T>.Contains(InternalArray, value);
-        }
-
-        public Tensor<T> Copy()
-        {
-            return FromRef(Shape, InternalArray);
-        }
-
-        public Tensor<T> Copy(Shape shape)
-        {
-            if (shape.Volume != Volume)
-            {
-                throw new ShapeMismatchException(nameof(shape));
-            }
-
-            return FromRef(shape, InternalArray);
         }
 
         public void Foreach(Action<Vector<T>> vAction, Action<T> action)

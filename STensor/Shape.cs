@@ -14,18 +14,14 @@ namespace STensor
 
         protected readonly int[] Dims;
 
-        public Shape()
-        {
-            Rank = 0;
-            Volume = 0;
-            Dims = Array.Empty<int>();
-        }
-
         public Shape(params int[] dims)
         {
             if (dims.Length == 0)
             {
-                throw new RankException(nameof(dims));
+                Rank = 0;
+                Volume = 0;
+                Dims = Array.Empty<int>();
+                return;
             }
 
             if (ArrayOps<int>.Less(dims, 1))

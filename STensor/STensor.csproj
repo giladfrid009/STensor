@@ -3,6 +3,13 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <nullable>enable</nullable>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Description>SIMD-accelerated generic tensor library</Description>
+    <PackageTags>SIMD Performance Allocation Generic Math</PackageTags>
+    <PackageProjectUrl></PackageProjectUrl>
+    <RepositoryUrl>https://github.com/giladfrid009/STensor</RepositoryUrl>
+    <Copyright>Copyright 2020 (c) Gilad Freidkin. All rights reserved</Copyright>
+    <Authors>Gilad Freidkin</Authors>
   </PropertyGroup>
 
   <ItemGroup>
