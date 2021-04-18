@@ -24,16 +24,16 @@ namespace STensor
                 return;
             }
 
-            if (ArrayOps<int>.Less(dims, 1))
+            if (SimdOps<int>.Less(dims, 1))
             {
                 throw new ArgumentOutOfRangeException($"{nameof(dims)} must be in range >= 1.");
             }
 
             Rank = dims.Length;
 
-            Dims = ArrayOps<int>.Copy(dims);
+            Dims = dims.AsSpan().ToArray();
 
-            Volume = ArrayOps<int>.Aggregate(dims, 1, (R, X) => R * X, (R, X) => R * X);
+            Volume = SimdOps<int>.Aggregate(dims, 1, (R, X) => R * X, (R, X) => R * X);
         }
         
         public static bool operator ==(Shape left, Shape right)
@@ -88,7 +88,7 @@ namespace STensor
                 return false;
             }
 
-            return ArrayOps<int>.Equals(Dims, shape.Dims);
+            return SimdOps<int>.Equal(Dims, shape.Dims);
         }
 
         public override bool Equals(object? obj)

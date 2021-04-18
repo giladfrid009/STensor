@@ -23,7 +23,7 @@ namespace STensor
 
             Shape = shape;
 
-            InternalArray = asRef ? array : ArrayOps<T>.Copy(array);
+            InternalArray = asRef ? array : array.AsSpan().ToArray();
         }
 
         public Tensor(params T[] elements) : this(new Shape(elements.Length), elements, false)
@@ -43,7 +43,7 @@ namespace STensor
         {
             T[] array = new T[shape.Volume];
 
-            ArrayOps<T>.Fill(array, value);
+            SimdOps<T>.Fill(array, value);
 
             return FromRef(shape, array);
         }

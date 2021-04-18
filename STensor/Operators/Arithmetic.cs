@@ -5,25 +5,25 @@ namespace STensor
 {
     public partial class Tensor<T>
     {
-        protected static readonly T One = MathOps<int, T>.Convert(1);
+        protected static readonly T One = NumOps<int, T>.Convert(1);
 
         public static Tensor<T> operator -(Tensor<T> tensor)
         {
-            T[] result = ArrayOps<T>.Negate(tensor.InternalArray);
+            T[] result = SimdOps<T>.Negate(tensor.InternalArray);
 
             return FromRef(tensor.Shape, result);
         }
 
         public static Tensor<T> operator ++(Tensor<T> tensor)
         {
-            T[] result = ArrayOps<T>.Add(tensor.InternalArray, One);
+            T[] result = SimdOps<T>.Add(tensor.InternalArray, One);
 
             return FromRef(tensor.Shape, result);
         }
 
         public static Tensor<T> operator --(Tensor<T> tensor)
         {
-            T[] result = ArrayOps<T>.Subtract(tensor.InternalArray, One);
+            T[] result = SimdOps<T>.Subtract(tensor.InternalArray, One);
 
             return FromRef(tensor.Shape, result);
         }
@@ -35,21 +35,21 @@ namespace STensor
                 throw new ShapeMismatchException(nameof(right));
             }
 
-            T[] result = ArrayOps<T>.Add(left.InternalArray, right.InternalArray);
+            T[] result = SimdOps<T>.Add(left.InternalArray, right.InternalArray);
 
             return FromRef(left.Shape, result);
         }
 
         public static Tensor<T> operator +(Tensor<T> left, T right)
         {
-            T[] result = ArrayOps<T>.Add(left.InternalArray, right);
+            T[] result = SimdOps<T>.Add(left.InternalArray, right);
 
             return FromRef(left.Shape, result);
         }
 
         public static Tensor<T> operator +(T left, Tensor<T> right)
         {
-            T[] result = ArrayOps<T>.Add(right.InternalArray, left);
+            T[] result = SimdOps<T>.Add(right.InternalArray, left);
 
             return FromRef(right.Shape, result);
         }
@@ -61,21 +61,21 @@ namespace STensor
                 throw new ShapeMismatchException(nameof(right));
             }
 
-            T[] result = ArrayOps<T>.Subtract(left.InternalArray, right.InternalArray);
+            T[] result = SimdOps<T>.Subtract(left.InternalArray, right.InternalArray);
 
             return FromRef(left.Shape, result);
         }
 
         public static Tensor<T> operator -(Tensor<T> left, T right)
         {
-            T[] result = ArrayOps<T>.Subtract(left.InternalArray, right);
+            T[] result = SimdOps<T>.Subtract(left.InternalArray, right);
 
             return FromRef(left.Shape, result);
         }
 
         public static Tensor<T> operator -(T left, Tensor<T> right)
         {
-            T[] result = ArrayOps<T>.Subtract(left, right.InternalArray);
+            T[] result = SimdOps<T>.Subtract(left, right.InternalArray);
 
             return FromRef(right.Shape, result);
         }
@@ -87,21 +87,21 @@ namespace STensor
                 throw new ShapeMismatchException(nameof(right));
             }
 
-            T[] result = ArrayOps<T>.Multiply(left.InternalArray, right.InternalArray);
+            T[] result = SimdOps<T>.Multiply(left.InternalArray, right.InternalArray);
 
             return FromRef(left.Shape, result);
         }
 
         public static Tensor<T> operator *(Tensor<T> left, T right)
         {
-            T[] result = ArrayOps<T>.Multiply(left.InternalArray, right);
+            T[] result = SimdOps<T>.Multiply(left.InternalArray, right);
 
             return FromRef(left.Shape, result);
         }
 
         public static Tensor<T> operator *(T left, Tensor<T> right)
         {
-            T[] result = ArrayOps<T>.Multiply(right.InternalArray, left);
+            T[] result = SimdOps<T>.Multiply(right.InternalArray, left);
 
             return FromRef(right.Shape, result);
         }
@@ -113,21 +113,21 @@ namespace STensor
                 throw new ShapeMismatchException(nameof(right));
             }
 
-            T[] result = ArrayOps<T>.Divide(left.InternalArray, right.InternalArray);
+            T[] result = SimdOps<T>.Divide(left.InternalArray, right.InternalArray);
 
             return FromRef(left.Shape, result);
         }
 
         public static Tensor<T> operator /(Tensor<T> left, T right)
         {
-            T[] result = ArrayOps<T>.Divide(left.InternalArray, right);
+            T[] result = SimdOps<T>.Divide(left.InternalArray, right);
 
             return FromRef(left.Shape, result);
         }
 
         public static Tensor<T> operator /(T left, Tensor<T> right)
         {
-            T[] result = ArrayOps<T>.Divide(left, right.InternalArray);
+            T[] result = SimdOps<T>.Divide(left, right.InternalArray);
 
             return FromRef(right.Shape, result);
         }

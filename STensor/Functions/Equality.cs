@@ -17,12 +17,12 @@ namespace STensor
                 return true;
             }
 
-            return Shape == tensor.Shape && ArrayOps<T>.Equals(InternalArray, tensor.InternalArray);
+            return Shape == tensor.Shape && SimdOps<T>.Equals(InternalArray, tensor.InternalArray);
         }
 
         public bool Equals(T value)
         {
-            return ArrayOps<T>.Equals(InternalArray, value);
+            return SimdOps<T>.Equals(InternalArray, value);
         }
 
         public override bool Equals(object? obj)

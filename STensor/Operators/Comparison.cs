@@ -42,17 +42,17 @@ namespace STensor
                 throw new ShapeMismatchException(nameof(right));
             }
 
-            return ArrayOps<T>.Greater(left.InternalArray, right.InternalArray);
+            return SimdOps<T>.Greater(left.InternalArray, right.InternalArray);
         }
 
         public static bool operator >(Tensor<T> left, T right)
         {
-            return ArrayOps<T>.Greater(left.InternalArray, right);
+            return SimdOps<T>.Greater(left.InternalArray, right);
         }
 
         public static bool operator >(T left, Tensor<T> right)
         {
-            return ArrayOps<T>.Less(right.InternalArray, left);
+            return SimdOps<T>.Less(right.InternalArray, left);
         }
 
         public static bool operator <(Tensor<T> left, Tensor<T> right)
@@ -62,17 +62,17 @@ namespace STensor
                 throw new ShapeMismatchException(nameof(right));
             }
 
-            return ArrayOps<T>.Less(left.InternalArray, right.InternalArray);
+            return SimdOps<T>.Less(left.InternalArray, right.InternalArray);
         }
 
         public static bool operator <(Tensor<T> left, T right)
         {
-            return ArrayOps<T>.Less(left.InternalArray, right);
+            return SimdOps<T>.Less(left.InternalArray, right);
         }
 
         public static bool operator <(T left, Tensor<T> right)
         {
-            return ArrayOps<T>.Greater(right.InternalArray, left);
+            return SimdOps<T>.Greater(right.InternalArray, left);
         }
 
         public static bool operator >=(Tensor<T> left, Tensor<T> right)
@@ -82,17 +82,17 @@ namespace STensor
                 throw new ShapeMismatchException(nameof(right));
             }
 
-            return ArrayOps<T>.GreaterOrEqual(left.InternalArray, right.InternalArray);
+            return SimdOps<T>.GreaterOrEqual(left.InternalArray, right.InternalArray);
         }
 
         public static bool operator >=(Tensor<T> left, T right)
         {
-            return ArrayOps<T>.GreaterOrEqual(left.InternalArray, right);
+            return SimdOps<T>.GreaterOrEqual(left.InternalArray, right);
         }
 
         public static bool operator >=(T left, Tensor<T> right)
         {
-            return ArrayOps<T>.LessOrEqual(right.InternalArray, left);
+            return SimdOps<T>.LessOrEqual(right.InternalArray, left);
         }
 
         public static bool operator <=(Tensor<T> left, Tensor<T> right)
@@ -102,17 +102,17 @@ namespace STensor
                 throw new ShapeMismatchException(nameof(right));
             }
 
-            return ArrayOps<T>.LessOrEqual(left.InternalArray, right.InternalArray);
+            return SimdOps<T>.LessOrEqual(left.InternalArray, right.InternalArray);
         }
 
         public static bool operator <=(Tensor<T> left, T right)
         {
-            return ArrayOps<T>.LessOrEqual(left.InternalArray, right);
+            return SimdOps<T>.LessOrEqual(left.InternalArray, right);
         }
 
         public static bool operator <=(T left, Tensor<T> right)
         {
-            return ArrayOps<T>.GreaterOrEqual(right.InternalArray, left);
+            return SimdOps<T>.GreaterOrEqual(right.InternalArray, left);
         }
 
     }
