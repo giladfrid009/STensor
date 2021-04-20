@@ -8,7 +8,7 @@ namespace STensor
     {
         public T Aggregate(T seed, Func<Vector<T>, Vector<T>, Vector<T>> vAccumulator, Func<T, T, T> accumulator)
         {
-            return SimdOps<T>.Aggregate(InternalArray, seed, vAccumulator, accumulator);
+            return SimdOps<T>.Aggregate(InternalArray, seed, vAccumulator.ToStruct(), accumulator.ToStruct());
         }
 
         public T Average()
@@ -18,7 +18,7 @@ namespace STensor
 
         public T Average(Func<Vector<T>, Vector<T>> vSelector, Func<T, T> selector)
         {
-            return SimdOps<T>.Average(InternalArray, vSelector, selector);
+            return SimdOps<T>.Average(InternalArray, vSelector.ToStruct(), selector.ToStruct());
         }
 
         public T Dot(T value)
@@ -38,7 +38,7 @@ namespace STensor
 
         public T Max(Func<Vector<T>, Vector<T>> vSelector, Func<T, T> selector)
         {
-            return SimdOps<T>.Max(InternalArray, vSelector, selector);
+            return SimdOps<T>.Max(InternalArray, vSelector.ToStruct(), selector.ToStruct());
         }
 
         public T Min()
@@ -48,7 +48,7 @@ namespace STensor
 
         public T Min(Func<Vector<T>, Vector<T>> vSelector, Func<T, T> selector)
         {
-            return SimdOps<T>.Min(InternalArray, vSelector, selector);
+            return SimdOps<T>.Min(InternalArray, vSelector.ToStruct(), selector.ToStruct());
         }
 
         public T Sum()
@@ -58,12 +58,7 @@ namespace STensor
 
         public T Sum(Func<Vector<T>, Vector<T>> vSelector, Func<T, T> selector)
         {
-            return SimdOps<T>.Sum(InternalArray, vSelector, selector);
-        }
-
-        public T Sum(Func<Vector<T>, int, Vector<T>> vSelector, Func<T, int, T> selector)
-        {
-            return SimdOps<T>.Sum(InternalArray, vSelector, selector);
+            return SimdOps<T>.Sum(InternalArray, vSelector.ToStruct(), selector.ToStruct());
         }
     }
 }

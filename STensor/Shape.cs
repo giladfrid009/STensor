@@ -33,7 +33,12 @@ namespace STensor
 
             Dims = dims.AsSpan().ToArray();
 
-            Volume = SimdOps<int>.Aggregate(dims, 1, (R, X) => R * X, (R, X) => R * X);
+            Volume = 1;
+
+            for (int i = 0; i < dims.Length; i++)
+            {
+                Volume *= dims[i];
+            }
         }
         
         public static bool operator ==(Shape left, Shape right)

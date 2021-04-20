@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <TargetFramework>net5.0</TargetFramework>
     <nullable>enable</nullable>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Description>SIMD-accelerated generic tensor library</Description>
@@ -13,7 +13,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="SimpleSIMD" Version="2.0.1" />
+    <PackageReference Include="SimpleSIMD" Version="3.1.0" />
   </ItemGroup>
 
 </Project>

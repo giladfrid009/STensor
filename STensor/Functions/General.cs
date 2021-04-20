@@ -8,12 +8,12 @@ namespace STensor
     {
         public bool All(Func<Vector<T>, bool> vPredicate, Func<T, bool> predicate)
         {
-            return SimdOps<T>.All(InternalArray, vPredicate, predicate);
+            return SimdOps<T>.All(InternalArray, vPredicate.ToStruct(), predicate.ToStruct());
         }
 
         public bool Any(Func<Vector<T>, bool> vPredicate, Func<T, bool> predicate)
         {
-            return SimdOps<T>.Any(InternalArray, vPredicate, predicate);
+            return SimdOps<T>.Any(InternalArray, vPredicate.ToStruct(), predicate.ToStruct());
         }
 
         public bool Contains(T value)
@@ -23,12 +23,7 @@ namespace STensor
 
         public void Foreach(Action<Vector<T>> vAction, Action<T> action)
         {
-            SimdOps<T>.Foreach(InternalArray, vAction, action);
-        }
-
-        public void Foreach(Action<Vector<T>, int> vAction, Action<T, int> action)
-        {
-            SimdOps<T>.Foreach(InternalArray, vAction, action);
+            SimdOps<T>.Foreach(InternalArray, vAction.ToStruct(), action.ToStruct());
         }
 
         public int IndexOf(T value)
@@ -38,7 +33,7 @@ namespace STensor
 
         public int IndexOf(Func<Vector<T>, bool> vPredicate, Func<T, bool> predicate)
         {
-            return SimdOps<T>.IndexOf(InternalArray, vPredicate, predicate);
+            return SimdOps<T>.IndexOf(InternalArray, vPredicate.ToStruct(), predicate.ToStruct());
         }
 
         public T[] ToArray()
